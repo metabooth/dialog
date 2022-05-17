@@ -1,15 +1,36 @@
 name: dialog
+
 on:
   push:
-    branches:
-    paths-ignore: ["README.md"]
-  workflow_dispatch:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
-  turkeyGitops:
-    uses: lonycell/hubs-ops/.github/workflows/turkeyGitops.yml@master
-    with:
-      registry: mozillareality
-      dockerfile: Dockerfile
-    secrets:
-      DOCKER_HUB_PWD: ${{ secrets.DOCKER_HUB_PWD }}
+  build:
+
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Stop server
+      run: pm2 stop dialog_server
+      
+    - name: Check version
+      run: |
+        node -v
+        npm -v
+    
+    - name: Install dependency
+      run: npm i
+    
+    - name: Start server
+      run: pm2 start dialog_server
+  
+    - name: Check status
+      run: pm2 status
