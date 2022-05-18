@@ -14,21 +14,25 @@ jobs:
         node-version: [16.x]
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Stop Server (hubs_admin_server)
+        run: |
+          pm2 stop dialog_server
+          pm2 delete dialog_server
+        continue-on-error: true
     
-    - name: Stop server
-      run: pm2 stop dialog_server
+      - name: Check version
+        run: |
+          node -v
+          npm -v
+
+      - uses: actions/checkout@v3
+
+      - name: Install dependency
+        run: npm i
       
-    - name: Check version
-      run: |
-        node -v
-        npm -v
-    
-    - name: Install dependency
-      run: npm i
-    
-    - name: Start server
-      run: pm2 start dialog_server
-  
-    - name: Check status
-      run: pm2 status
+      - name: Register and start dialog_server to PM2
+        run: |
+          pm2 start "npm run start" --name dialog_server
+
+      - name: Check PM2 status
+        run: pm2 status
