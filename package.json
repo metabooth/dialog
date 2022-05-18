@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "eslint -c .eslintrc.js index.js",
     "start-origin": "DEBUG=${DEBUG:='*mediasoup* *INFO* *WARN* *ERROR*'} INTERACTIVE=${INTERACTIVE:='true'} node index.js",
-    "start": "MEDIASOUP_LISTEN_IP=0.0.0.0 MEDIASOUP_ANNOUNCED_IP=106.10.33.166 HTTPS_CERT_FULLCHAIN=/home/lonycell/server/.certs/pet-mom.club/fullchain.pem HTTPS_CERT_PRIVKEY=/home/lonycell/server/.certs/pet-mom.club/privkey.pem AUTH_KEY=/home/lonycell/server/.certs/pet-mom.club/perms.pub.pem DOMAIN=pet-mom.club DEBUG=${DEBUG:='*mediasoup* *INFO* *WARN* *ERROR*'} INTERACTIVE=${INTERACTIVE:='true'} node index.js"
+    "start": "MEDIASOUP_LISTEN_IP=0.0.0.0 MEDIASOUP_ANNOUNCED_IP=106.10.33.166 HTTPS_CERT_FULLCHAIN=/home/lonycell/server/.certs/pet-mom.club/fullchain.pem HTTPS_CERT_PRIVKEY=/home/lonycell/server/.certs/pet-mom.club/privkey.pem AUTH_KEY=/home/lonycell/server/.certs/pet-mom.club/perms.pub.pem DOMAIN=pet-mom.club DEBUG=${DEBUG:='*mediasoup* *INFO* *WARN* *ERROR*'} INTERACTIVE=${INTERACTIVE:='false'} node index.js"
   },
   "dependencies": {
     "@sitespeed.io/throttle": "^0.5.4",
