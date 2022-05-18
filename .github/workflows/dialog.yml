@@ -40,7 +40,7 @@ jobs:
           restore-keys: dialog-
 
       - name: Install dependency
-        run: npm ci --ignore-scripts
+        run: npm ci
       
       - name: Register and start dialog_server to PM2
         run: |
