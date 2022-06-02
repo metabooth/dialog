@@ -28,6 +28,7 @@ Mediasoup based WebRTC SFU for Mozilla Hubs.
  1945  openssl pkcs7 -print_certs -in pet-mom.club.p7b -out certs.pem
  1946  npm ci
  1947  MEDIASOUP_LISTEN_IP=192.168.0.116 MEDIASOUP_ANNOUNCED_IP=192.168.0.116 npm start
+ MEDIASOUP_LISTEN_IP=106.10.33.166 MEDIASOUP_ANNOUNCED_IP=106.10.33.166 npm start
 ```
      
 7. Navigate to https://localhost:4443/ in your browser, and accept the self-signed cert.
